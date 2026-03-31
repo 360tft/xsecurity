@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Is Your X Account Secure? | Free Security Audit for Coaches</title>
+  <meta name="description" content="Football coaches are getting hacked on X. Run this free 2-minute security audit to check your account and fix any gaps before it happens to you.">
+  <meta name="keywords" content="x security, twitter security, football coach, account security, two factor authentication, hacked twitter">
+  <link rel="canonical" href="https://xsecurity.360tft.com">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Is Your X Account Secure?">
+  <meta property="og:description" content="Football coaches are getting hacked on X. Free 2-minute security audit. Check yours now.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xsecurity.360tft.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Is Your X Account Secure?">
+  <meta name="twitter:description" content="Football coaches are getting hacked on X. Free 2-minute security audit.">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    .xsec-hero {
+      background: #000;
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .xsec-badge {
+      display: inline-block;
+      background: rgba(151, 107, 221, 0.15);
+      color: #976bdd;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .xsec-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .xsec-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Audit section */
+    .xsec-audit {
+      background: #000;
+      padding: 0 0 60px;
+    }
+
+    .xsec-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Progress */
+    .xsec-progress-wrap {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .xsec-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #976bdd, #16a34a);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .xsec-progress-text {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 32px;
+    }
+
+    /* Categories */
+    .xsec-category {
+      margin-bottom: 36px;
+    }
+
+    .xsec-category h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .xsec-critical {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: #dc2626;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Items */
+    .xsec-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .xsec-item-done {
+      border-color: rgba(22, 163, 74, 0.3);
+      background: rgba(22, 163, 74, 0.05);
+    }
+
+    .xsec-item-header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .xsec-item-text h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .xsec-item-text p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Toggle switch */
+    .xsec-toggle {
+      position: relative;
+      flex-shrink: 0;
+      width: 48px;
+      height: 28px;
+      margin-top: 2px;
+    }
+
+    .xsec-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .xsec-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      transition: all 0.3s ease;
+    }
+
+    .xsec-slider::before {
+      content: '';
+      position: absolute;
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .xsec-toggle input:checked + .xsec-slider {
+      background: #16a34a;
+    }
+
+    .xsec-toggle input:checked + .xsec-slider::before {
+      transform: translateX(20px);
+    }
+
+    /* Check + Fix instructions (shared styles) */
+    .xsec-check,
+    .xsec-fix {
+      margin-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+    }
+
+    .xsec-fix {
+      margin-top: 4px;
+      border-top: none;
+      padding-top: 8px;
+    }
+
+    .xsec-check summary,
+    .xsec-fix summary {
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .xsec-check summary {
+      color: #38bdf8;
+    }
+
+    .xsec-fix summary {
+      color: #976bdd;
+    }
+
+    .xsec-check summary::-webkit-details-marker,
+    .xsec-fix summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .xsec-check summary::before,
+    .xsec-fix summary::before {
+      content: '+ ';
+    }
+
+    .xsec-check[open] summary::before,
+    .xsec-fix[open] summary::before {
+      content: '- ';
+    }
+
+    .xsec-check ol,
+    .xsec-fix ol {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    .xsec-check li,
+    .xsec-fix li {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .xsec-check a,
+    .xsec-fix a {
+      color: #976bdd;
+      text-decoration: none;
+    }
+
+    .xsec-check a:hover,
+    .xsec-fix a:hover {
+      text-decoration: underline;
+    }
+
+    /* Results */
+    .xsec-results {
+      margin-top: 40px;
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+    }
+
+    .xsec-score {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .xsec-score-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .xsec-score-total {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .xsec-score-red { background: rgba(220, 38, 38, 0.15); }
+    .xsec-score-amber { background: rgba(245, 158, 11, 0.15); }
+    .xsec-score-green { background: rgba(22, 163, 74, 0.15); }
+
+    .xsec-rating {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .xsec-rating-red { color: #dc2626; }
+    .xsec-rating-amber { color: #f59e0b; }
+    .xsec-rating-green { color: #16a34a; }
+
+    /* Flagged items */
+    .xsec-flagged {
+      text-align: left;
+      background: rgba(220, 38, 38, 0.08);
+      border: 1px solid rgba(220, 38, 38, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .xsec-flagged h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fca5a5;
+      margin-bottom: 10px;
+    }
+
+    .xsec-flagged ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .xsec-flagged li {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 4px 0 4px 16px;
+      position: relative;
+    }
+
+    .xsec-flagged li::before {
+      content: '!';
+      position: absolute;
+      left: 0;
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    /* Email capture */
+    .xsec-email-capture {
+      margin: 24px 0;
+    }
+
+    .xsec-email-capture h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .xsec-email-form {
+      display: flex;
+      gap: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .xsec-email-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .xsec-email-form input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .xsec-email-form input:focus {
+      outline: none;
+      border-color: #976bdd;
+    }
+
+    .xsec-email-form button {
+      padding: 12px 20px;
+      background: #976bdd;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .xsec-email-form button:hover {
+      background: #8257c9;
+    }
+
+    .xsec-email-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .xsec-email-note {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+      margin-top: 8px;
+    }
+
+    .xsec-email-status {
+      font-size: 0.9rem;
+      color: #f59e0b;
+      margin-top: 8px;
+    }
+
+    .xsec-email-success {
+      color: #16a34a;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Share */
+    .xsec-share {
+      margin-top: 20px;
+    }
+
+    .xsec-share-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .xsec-share-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Recovery section */
+    .xsec-recovery {
+      background: rgba(220, 38, 38, 0.05);
+      padding: 60px 0;
+      border-top: 1px solid rgba(220, 38, 38, 0.15);
+    }
+
+    .xsec-recovery h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .xsec-recovery-intro {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 24px;
+    }
+
+    .xsec-recovery-steps {
+      max-width: 600px;
+      padding-left: 20px;
+    }
+
+    .xsec-recovery-steps li {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .xsec-recovery-steps strong {
+      color: #fff;
+    }
+
+    .xsec-recovery-steps a {
+      color: #976bdd;
+      text-decoration: none;
+    }
+
+    .xsec-recovery-steps a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .xsec-footer {
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .xsec-footer p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0;
+    }
+
+    .xsec-footer a {
+      color: #976bdd;
+      text-decoration: none;
+    }
+
+    .xsec-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .xsec-hero {
+        padding: 40px 0 30px;
+      }
+
+      .xsec-hero h1 {
+        font-size: 2rem;
+      }
+
+      .xsec-subtitle {
+        font-size: 1.05rem;
+      }
+
+      .xsec-wrapper {
+        padding: 0 4px;
+      }
+
+      .xsec-item {
+        padding: 16px;
+      }
+
+      .xsec-item-header {
+        gap: 12px;
+      }
+
+      .xsec-email-form {
+        flex-direction: column;
+      }
+
+      .xsec-results {
+        padding: 24px 16px;
+      }
+
+      .xsec-score-number {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="xsec-hero">
+  <div class="container">
+    <span class="xsec-badge">Free tool</span>
+    <h1>Is Your X Account Secure?</h1>
+    <p class="xsec-subtitle">Football coaches are getting hacked. Run this 2-minute audit and fix the gaps before it happens to you.</p>
+  </div>
+</section>
+
+<section class="xsec-audit">
+  <div class="container">
+    <div class="xsec-wrapper">
+
+      <!-- Progress bar -->
+      <div class="xsec-progress-wrap">
+        <div class="xsec-progress-bar" id="progressBar"></div>
+      </div>
+      <p class="xsec-progress-text" id="progressText">0 of 12 checked</p>
+
+      <!-- Category 1: 2FA -->
+      <div class="xsec-category">
+        <h2>Two-Factor Authentication <span class="xsec-critical">Critical</span></h2>
+
+        <div class="xsec-item" data-critical="true">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="2fa-enabled">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>2FA enabled (authentication app or security key)</h3>
+              <p>SMS-based 2FA is better than nothing, but an authenticator app (Google Authenticator, Authy) or security key is much harder to bypass.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/account/login_verification" target="_blank" rel="noopener noreferrer">X Settings > Security > Two-factor authentication</a></li>
+              <li>You should see at least one method toggled on (Authentication app or Security key). If everything is off, you don't have 2FA.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, select "Authentication app"</li>
+              <li>Scan the QR code with your authenticator app (Google Authenticator, Authy, or your password manager)</li>
+              <li>Enter the code to confirm</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item" data-critical="true">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="backup-codes">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Backup codes saved somewhere safe</h3>
+              <p>If you lose your phone, backup codes are the only way back into your account. Save them in a password manager or print them out.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/account/login_verification" target="_blank" rel="noopener noreferrer">X Settings > Security > Two-factor authentication</a></li>
+              <li>Click "Backup codes". If you've generated them before, you'll see existing codes. If you can find a copy in your password manager or notes, you're good.</li>
+              <li>If you've never generated them, or you can't find where you saved them, treat this as a no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, click "Backup codes" then "Generate backup codes"</li>
+              <li>Copy or screenshot the codes</li>
+              <li>Store them in your password manager or a secure note you won't lose</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Category 2: Password Security -->
+      <div class="xsec-category">
+        <h2>Password Security</h2>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="strong-password">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Strong unique password (not reused from other sites)</h3>
+              <p>If you use the same password on X as another site, a breach on that site gives attackers your X password too.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open your password manager and look up your X / Twitter entry.</li>
+              <li>If your X password is the same as any other site, or if you can type it from memory (meaning it's simple), it's not strong enough.</li>
+              <li>No password manager? Then the answer is almost certainly no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/password" target="_blank" rel="noopener noreferrer">X Settings > Change your password</a></li>
+              <li>Use your password manager to generate a strong, unique password (16+ characters)</li>
+              <li>Save it in your password manager</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="password-manager">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Using a password manager</h3>
+              <p>A password manager (1Password, Bitwarden, Apple Keychain) lets you use strong, unique passwords without remembering them all.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Do you use 1Password, Bitwarden, LastPass, Dashlane, or Apple/Google's built-in password manager?</li>
+              <li>Is your X password stored in it? If you log into X by typing a password you've memorised, you're probably not using one for this account.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>Download <a href="https://bitwarden.com" target="_blank" rel="noopener noreferrer">Bitwarden</a> (free) or <a href="https://1password.com" target="_blank" rel="noopener noreferrer">1Password</a></li>
+              <li>Add your X login details</li>
+              <li>Generate a new, strong password for X through the manager</li>
+              <li>Update your X password to the new one</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Category 3: Connected Apps -->
+      <div class="xsec-category">
+        <h2>Connected Apps</h2>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="reviewed-apps">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Reviewed connected apps in the last 90 days</h3>
+              <p>Third-party apps with access to your account can post, DM, or change settings on your behalf. Old or forgotten apps are a common attack vector.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/connected_apps" target="_blank" rel="noopener noreferrer">X Settings > Security and account access > Apps and sessions > Connected apps</a></li>
+              <li>Look at the list. Do you recognise every app? Do you still use all of them? If you haven't looked at this page in months, mark this as no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, review each app listed</li>
+              <li>Revoke access to anything you don't recognise or no longer use</li>
+              <li>If in doubt, revoke it. You can always reconnect a legitimate app later.</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="revoked-apps">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Revoked access to any apps you don't recognise or use</h3>
+              <p>If in doubt, revoke it. You can always reconnect a legitimate app later.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/connected_apps" target="_blank" rel="noopener noreferrer">X Settings > Connected apps</a></li>
+              <li>If the list is empty or every app is one you actively use and trust, you're good. If there are apps you don't recognise, mark this as no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, click on any app you're unsure about</li>
+              <li>Click "Revoke access"</li>
+              <li>Repeat for all unrecognised or unused apps</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Category 4: Account Recovery -->
+      <div class="xsec-category">
+        <h2>Account Recovery</h2>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="recovery-email">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Recovery email is current and accessible</h3>
+              <p>If you get locked out, this is how X verifies you. Make sure it's an email you can actually access right now.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/email" target="_blank" rel="noopener noreferrer">X Settings > Your account > Account information > Email</a></li>
+              <li>You'll see the email address on file. Is it one you can still log into right now? If it's an old work email or one you've lost access to, mark this as no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, click "Update email address"</li>
+              <li>Enter an email you actively use and can access</li>
+              <li>Confirm the change via the verification email X sends you</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="phone-number">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Phone number is current (for account recovery, not 2FA)</h3>
+              <p>A current phone number gives you an extra recovery path if email alone isn't enough.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/phone" target="_blank" rel="noopener noreferrer">X Settings > Your account > Account information > Phone</a></li>
+              <li>You'll see your phone number (partially masked). Is this still your current number? If there's no number listed, or it's an old one, mark this as no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, click "Update phone number"</li>
+              <li>Enter your current mobile number</li>
+              <li>Verify with the code X sends via SMS</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="login-alerts">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Login alerts enabled</h3>
+              <p>Get notified when someone logs into your account from a new device or location. Early warning is everything.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/security" target="_blank" rel="noopener noreferrer">X Settings > Security and account access > Security</a></li>
+              <li>Look for "Additional password protection" or login notification settings. If login alerts/notifications are toggled on, you're good.</li>
+              <li>Also check: have you ever received a "new login" email from X? If you've logged in from a new device and didn't get an alert, it's off.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, enable login notifications</li>
+              <li>Check your email/push notification settings aren't blocking alerts from X</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Category 5: Session & Privacy -->
+      <div class="xsec-category">
+        <h2>Session and Privacy</h2>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="logged-out-devices">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Logged out of devices you don't use</h3>
+              <p>Old sessions on shared or lost devices are a way in. Clean them up.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/sessions" target="_blank" rel="noopener noreferrer">X Settings > Security and account access > Apps and sessions > Sessions</a></li>
+              <li>You'll see a list of active sessions with device types and locations. If the only sessions are devices you currently use, you're good.</li>
+              <li>If you see old phones, work computers you no longer have, or devices you don't recognise, mark this as no.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, click "Log out" on any session you don't recognise or no longer use</li>
+              <li>Or use "Log out all other sessions" to clean up everything at once (you'll stay logged in on your current device)</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="unfamiliar-logins">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>Checked for unfamiliar login locations</h3>
+              <p>If you see sessions from countries you've never been to, someone else may have access.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/sessions" target="_blank" rel="noopener noreferrer">X Settings > Sessions</a></li>
+              <li>Look at the location shown for each session. Do they all match places you've actually been? VPNs can show different locations, so account for that.</li>
+              <li>If there's a session from a country you've never visited and you don't use a VPN, someone else may have access.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>If anything looks wrong: immediately click "Log out all other sessions"</li>
+              <li>Then <a href="https://x.com/settings/password" target="_blank" rel="noopener noreferrer">change your password</a></li>
+              <li>Then <a href="https://x.com/settings/account/login_verification" target="_blank" rel="noopener noreferrer">enable 2FA</a> if you haven't already</li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="xsec-item">
+          <div class="xsec-item-header">
+            <label class="xsec-toggle">
+              <input type="checkbox" data-item="dm-settings">
+              <span class="xsec-slider"></span>
+            </label>
+            <div class="xsec-item-text">
+              <h3>DM settings reviewed (who can message you)</h3>
+              <p>Open DMs make phishing easier. Consider limiting who can DM you to reduce attack surface.</p>
+            </div>
+          </div>
+          <details class="xsec-check">
+            <summary>How to check</summary>
+            <ol>
+              <li>Open <a href="https://x.com/settings/direct_messages" target="_blank" rel="noopener noreferrer">X Settings > Privacy and safety > Direct messages</a></li>
+              <li>Check whether "Allow message requests from everyone" is on or off. If it's on, anyone can DM you, including phishing attempts.</li>
+              <li>This is a judgement call. If you need open DMs for networking, that's fine. Just make sure you've consciously chosen it rather than left it on by default.</li>
+            </ol>
+          </details>
+          <details class="xsec-fix">
+            <summary>How to fix this</summary>
+            <ol>
+              <li>On the same page, toggle off "Allow message requests from everyone" if you don't need it</li>
+              <li>You'll still receive DMs from people you follow and people who've messaged you before</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="xsec-results" id="results" style="display: none;">
+        <div class="xsec-score" id="scoreCard">
+          <span class="xsec-score-number" id="scoreNumber">0</span>
+          <span class="xsec-score-total">/ 12</span>
+        </div>
+        <p class="xsec-rating" id="ratingText"></p>
+
+        <div class="xsec-flagged" id="flaggedSection" style="display: none;">
+          <h3>Fix these:</h3>
+          <ul id="flaggedList"></ul>
+        </div>
+
+        <!-- Email capture -->
+        <div class="xsec-email-capture" id="emailCapture">
+          <h3>Email me my results</h3>
+          <form id="emailForm" class="xsec-email-form">
+            <input type="email" id="emailInput" placeholder="your@email.com" required>
+            <button type="submit" id="emailSubmit">Send results</button>
+          </form>
+          <p class="xsec-email-note">One email with your results. No spam, no sequences.</p>
+          <p class="xsec-email-status" id="emailStatus" style="display: none;"></p>
+        </div>
+
+        <!-- Share -->
+        <div class="xsec-share">
+          <a id="shareButton" href="#" target="_blank" rel="noopener noreferrer" class="xsec-share-btn">
+            Share your score on X
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Compromised account recovery -->
+<section class="xsec-recovery">
+  <div class="container">
+    <h2>Account Already Compromised?</h2>
+    <p class="xsec-recovery-intro">If you think someone else has access to your account, do these things now:</p>
+    <ol class="xsec-recovery-steps">
+      <li><strong>Reset your password immediately</strong> from a device you trust</li>
+      <li><strong>Revoke access to all unrecognised apps</strong> in <a href="https://x.com/settings/connected_apps" target="_blank" rel="noopener noreferrer">Settings > Connected apps</a></li>
+      <li><strong>Log out of all sessions</strong> in <a href="https://x.com/settings/sessions" target="_blank" rel="noopener noreferrer">Settings > Sessions</a></li>
+      <li><strong>Enable or reset 2FA</strong> using an authenticator app, not SMS</li>
+      <li><strong>Contact X Support</strong> at <a href="https://help.x.com" target="_blank" rel="noopener noreferrer">help.x.com</a></li>
+      <li><strong>Check your email account security too</strong>. Your X recovery email may also be compromised.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="xsec-footer">
+  <div class="container">
+    <p>Built by Kevin Middleton | <a href="https://www.skool.com/coachingacademy" target="_blank" rel="noopener noreferrer">Join 1,800+ coaches</a></p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var TOTAL = 12;
+  var HUB_URL = 'https://hub.360tft.com/api/x-security/capture';
+  var checkboxes = document.querySelectorAll('.xsec-item input[type="checkbox"]');
+  var progressBar = document.getElementById('progressBar');
+  var progressText = document.getElementById('progressText');
+  var resultsSection = document.getElementById('results');
+  var scoreNumber = document.getElementById('scoreNumber');
+  var ratingText = document.getElementById('ratingText');
+  var scoreCard = document.getElementById('scoreCard');
+  var flaggedSection = document.getElementById('flaggedSection');
+  var flaggedList = document.getElementById('flaggedList');
+  var shareButton = document.getElementById('shareButton');
+  var emailForm = document.getElementById('emailForm');
+  var emailInput = document.getElementById('emailInput');
+  var emailSubmit = document.getElementById('emailSubmit');
+  var emailStatus = document.getElementById('emailStatus');
+  var emailCapture = document.getElementById('emailCapture');
+
+  function update() {
+    var checked = 0;
+    var flagged = [];
+    checkboxes.forEach(function(cb) {
+      if (cb.checked) {
+        checked++;
+        cb.closest('.xsec-item').classList.add('xsec-item-done');
+      } else {
+        cb.closest('.xsec-item').classList.remove('xsec-item-done');
+        var title = cb.closest('.xsec-item').querySelector('h3');
+        if (title) flagged.push(title.textContent);
+      }
+    });
+
+    // Progress
+    var pct = Math.round((checked / TOTAL) * 100);
+    progressBar.style.width = pct + '%';
+    progressText.textContent = checked + ' of ' + TOTAL + ' checked';
+
+    // Show results once all items have been interacted with
+    var anyChecked = checked > 0;
+    var allTouched = document.querySelectorAll('.xsec-item.xsec-touched').length === TOTAL;
+
+    if (anyChecked || allTouched) {
+      resultsSection.style.display = 'block';
+      scoreNumber.textContent = checked;
+
+      // Rating
+      if (checked <= 4) {
+        scoreCard.className = 'xsec-score xsec-score-red';
+        ratingText.textContent = 'Your account is at serious risk. Fix the critical items now.';
+        ratingText.className = 'xsec-rating xsec-rating-red';
+      } else if (checked <= 8) {
+        scoreCard.className = 'xsec-score xsec-score-amber';
+        ratingText.textContent = "You've got the basics but there are gaps. Address the items above.";
+        ratingText.className = 'xsec-rating xsec-rating-amber';
+      } else {
+        scoreCard.className = 'xsec-score xsec-score-green';
+        ratingText.textContent = 'Well secured. Set a reminder to re-check in 90 days.';
+        ratingText.className = 'xsec-rating xsec-rating-green';
+      }
+
+      // Flagged items
+      if (flagged.length > 0 && checked < TOTAL) {
+        flaggedSection.style.display = 'block';
+        flaggedList.innerHTML = '';
+        flagged.forEach(function(item) {
+          var li = document.createElement('li');
+          li.textContent = item;
+          flaggedList.appendChild(li);
+        });
+      } else {
+        flaggedSection.style.display = 'none';
+      }
+
+      // Share button
+      var tweet = "I scored " + checked + "/" + TOTAL + " on the X Security Audit for Coaches. Check yours: https://xsecurity.360tft.com";
+      shareButton.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(tweet);
+
+      // Store for email
+      resultsSection.dataset.score = checked;
+      resultsSection.dataset.flagged = JSON.stringify(flagged);
+    }
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener('change', function() {
+      this.closest('.xsec-item').classList.add('xsec-touched');
+      update();
+    });
+  });
+
+  // Email capture
+  emailForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email) return;
+
+    emailSubmit.disabled = true;
+    emailSubmit.textContent = 'Sending...';
+    emailStatus.style.display = 'none';
+
+    var score = parseInt(resultsSection.dataset.score || '0', 10);
+    var flagged = [];
+    try { flagged = JSON.parse(resultsSection.dataset.flagged || '[]'); } catch(ex) {}
+
+    fetch(HUB_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, score: score, total: TOTAL, flagged: flagged })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.success) {
+        emailCapture.innerHTML = '<p class="xsec-email-success">Results sent. Check your inbox.</p>';
+      } else {
+        emailStatus.textContent = data.skipped ? 'Email skipped: ' + data.skipped : 'Something went wrong. Try again.';
+        emailStatus.style.display = 'block';
+        emailSubmit.disabled = false;
+        emailSubmit.textContent = 'Send results';
+      }
+    })
+    .catch(function() {
+      emailStatus.textContent = 'Network error. Try again.';
+      emailStatus.style.display = 'block';
+      emailSubmit.disabled = false;
+      emailSubmit.textContent = 'Send results';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
