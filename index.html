@@ -7,17 +7,22 @@
   <meta name="description" content="Football coaches are getting hacked on X. Run this free 2-minute security audit to check your account and fix any gaps before it happens to you.">
   <meta name="keywords" content="x security, twitter security, football coach, account security, two factor authentication, hacked twitter">
   <link rel="canonical" href="https://xsecurity.360tft.com">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Is Your X Account Secure?">
   <meta property="og:description" content="Football coaches are getting hacked on X. Free 2-minute security audit. Check yours now.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xsecurity.360tft.com">
+  <meta property="og:image" content="https://xsecurity.360tft.com/logo-360tft.png">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Is Your X Account Secure?">
   <meta name="twitter:description" content="Football coaches are getting hacked on X. Free 2-minute security audit.">
+  <meta name="twitter:image" content="https://xsecurity.360tft.com/logo-360tft.png">
 
   <style>
     /* Reset */
@@ -454,6 +459,12 @@
       color: #16a34a;
       font-weight: 600;
       font-size: 1rem;
+    }
+
+    .xsec-email-spam-note {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
+      margin-top: 8px;
     }
 
     /* Share */
@@ -1144,7 +1155,7 @@
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.success) {
-        emailCapture.innerHTML = '<p class="xsec-email-success">Results sent. Check your inbox.</p>';
+        emailCapture.innerHTML = '<p class="xsec-email-success">Results sent. Check your inbox.</p><p class="xsec-email-spam-note">Not there? Check your spam or junk folder. The email comes from Kevin Middleton (kevin@send.360tft.com).</p>';
       } else {
         emailStatus.textContent = data.skipped ? 'Email skipped: ' + data.skipped : 'Something went wrong. Try again.';
         emailStatus.style.display = 'block';
